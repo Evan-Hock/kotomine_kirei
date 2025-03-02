@@ -1,6 +1,12 @@
 defmodule KotomineKirei.Commands.KireiChallenge do
-  alias KotomineKirei.{Bible, BibleVerse}
+  @moduledoc """
+  /kireichallenge slash command.
+  """
+  @moduledoc since: "0.0.1"
+
+  alias KotomineKirei.Bible
   alias KotomineKirei.Bible.{Translation, Book}
+  alias KotomineKirei.Embed.BibleVerse
 
 
   @behaviour Nosedrum.ApplicationCommand
@@ -36,7 +42,7 @@ defmodule KotomineKirei.Commands.KireiChallenge do
   def command(interaction) do
     translation = Bible.get!(Translation, hd(interaction.data.options).value)
 
-    content = Bible.random_verse(translation: translation)
+    content = Bible.random_verse(translation)
 
     book_name =
       Bible.get!(Book, [id: content.book_id, language: translation.language])

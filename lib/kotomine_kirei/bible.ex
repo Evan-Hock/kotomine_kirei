@@ -1,4 +1,9 @@
 defmodule KotomineKirei.Bible do
+  @moduledoc """
+  Repo for Bible-related queries.
+  """
+  @moduledoc since: "0.0.1"
+
   import Ecto.Query, only: [first: 1, from: 2]
   import Ecto.Query.API
 

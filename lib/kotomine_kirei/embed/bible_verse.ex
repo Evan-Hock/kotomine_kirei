@@ -1,7 +1,8 @@
-defmodule KotomineKirei.BibleVerse do
+defmodule KotomineKirei.Embed.BibleVerse do
   @moduledoc """
   Struct for representing a Discord message embed of a Bible Verse.
   """
+  @moduledoc since: "0.0.1"
 
   use Nostrum.Struct.Embed
 

@@ -1,5 +1,5 @@
 defmodule KotomineKirei.Bible.Verse do
-  alias KotomineKirie.Bible.{Book, Translation}
+  alias KotomineKirei.Bible.{Book, Translation}
 
   use Ecto.Schema
 

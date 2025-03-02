@@ -1,5 +1,11 @@
 defmodule KotomineKirei.Consumer do
+  @moduledoc """
+  Discord consumer.
+  """
+  @moduledoc since: "0.0.1"
+
   use Nostrum.Consumer
+
   def handle_event({:READY, _data, _ws_state}) do
     case Nosedrum.Storage.Dispatcher.add_command("kireichallenge", KotomineKirei.Commands.KireiChallenge, :global) do
       {:ok, _} -> IO.puts("Successfully registered kireichallenge")
