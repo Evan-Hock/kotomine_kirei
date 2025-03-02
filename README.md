@@ -1,6 +1,6 @@
 # KotomineKirei
 
-**TODO: Add description**
+A Discord bot for playing Kirei's Challenge.
 
 ## Installation
 
