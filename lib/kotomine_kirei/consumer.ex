@@ -6,6 +6,7 @@ defmodule KotomineKirei.Consumer do
 
   use Nostrum.Consumer
 
+  @impl true
   def handle_event({:READY, _data, _ws_state}) do
     case Nosedrum.Storage.Dispatcher.add_command("kireichallenge", KotomineKirei.Commands.KireiChallenge, :global) do
       {:ok, _} -> IO.puts("Successfully registered kireichallenge")
@@ -13,6 +14,7 @@ defmodule KotomineKirei.Consumer do
     end
   end
 
+  @impl true
   def handle_event({:INTERACTION_CREATE, interaction, _ws_state}),
     do: Nosedrum.Storage.Dispatcher.handle_interaction(interaction)
 end
