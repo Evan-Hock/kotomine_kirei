@@ -7,6 +7,9 @@ defmodule KotomineKirei.Application do
   use Application
 
   @impl true
+  @spec start(type :: term, args :: term) ::
+    {:ok, pid}
+    | {:error, {:already_started, pid} | {:shutdown, term} | term}
   def start(_type, _args) do
     children = [
       KotomineKirei.Bible,
@@ -17,9 +20,5 @@ defmodule KotomineKirei.Application do
     options = [strategy: :rest_for_one, name: KotomineKirei.Supervisor]
 
     Supervisor.start_link(children, options)
-  end
-
-  def translations do
-    KotomineKirei.Bible.all(KotomineKirei.Bible.Translation)
   end
 end

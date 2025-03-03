@@ -16,6 +16,9 @@ defmodule KotomineKirei.Bible do
     adapter: Ecto.Adapters.MyXQL
 
 
+  @doc """
+  Fetches a random verse from any translation.
+  """
   @spec random_verse() :: Ecto.Schema.t
   def random_verse() do
     query =
@@ -25,6 +28,9 @@ defmodule KotomineKirei.Bible do
     one!(first(query))
   end
 
+  @doc """
+  Fetches a random verse from a particular translation.
+  """
   @spec random_verse(translation_id :: integer) :: Ecto.Schema.t
   def random_verse(translation_id) do
     query =
